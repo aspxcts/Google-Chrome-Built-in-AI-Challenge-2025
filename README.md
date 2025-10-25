@@ -1,6 +1,6 @@
 # SmartSight News Analyzer
 
-![SmartSight Logo](icons/icon128.png)
+![SmartSight Logo](SmartSightEXT/icons/icon128.png)
 
 A modern Chrome Extension for hackathons that analyzes news articles using on-device AI (Gemini Nano). Features emotion pulse, bias detection, deep analysis, quizzes, and chat—all powered by Chrome's built-in AI.
 
@@ -20,15 +20,10 @@ A modern Chrome Extension for hackathons that analyzes news articles using on-de
 ## 🏆 Hackathon Guidelines
 
 - **Open Source:** [GitHub Repository](https://github.com/yourusername/smartsight-news-analyzer)  
-  _Include an open source license (MIT recommended)._
+  _Open source under the MIT license._
 - **APIs Used:**
-  - Chrome Prompt API for Gemini Nano (`window.LanguageModel`)
-  - Chrome Storage API
-  - Chrome Scripting API
-- **Judging:**
-  - Judges can test the extension by following the setup below.
-  - All code and instructions are included.
-
+  - Chrome Prompt API 
+  - Chrome Summarizer API
 ---
 
 ## ⚡ Setup Instructions
@@ -49,7 +44,7 @@ Open Chrome and enter each URL below in the address bar. Set the flag as describ
   `chrome://flags/#optimization-guide-on-device-model`  
   _Set to: Enabled BypassPerfRequirement_
 
-**After enabling these flags, restart Chrome and reload this page.**
+**After enabling these flags, restart Chrome.**
 
 ---
 
@@ -82,25 +77,6 @@ If prompted, allow Chrome to complete the download.
 
 ---
 
-## 🔒 Permissions
-
-- `activeTab`
-- `scripting`
-- `storage`
-
----
-
-## 🧠 AI APIs Used
-
-- **Chrome Prompt API for Gemini Nano:**  
-  Used via `window.LanguageModel` for all AI features (emotion, bias, analysis, quiz, chat).
-- **Chrome Storage API:**  
-  Stores whitelisted domains and user preferences.
-- **Chrome Scripting API:**  
-  Injects content scripts as needed.
-
----
-
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
@@ -110,15 +86,6 @@ This project is licensed under the [MIT License](LICENSE).
 ## 🌐 Repository
 
 [https://github.com/yourusername/smartsight-news-analyzer](https://github.com/yourusername/smartsight-news-analyzer)
-
----
-
-## 💡 Judges: How to Test
-
-1. Follow the setup steps above.
-2. Open a news article on a whitelisted domain.
-3. Click the extension icon and use the sidebar.
-4. All features run locally using Gemini Nano.
 
 ---
 
