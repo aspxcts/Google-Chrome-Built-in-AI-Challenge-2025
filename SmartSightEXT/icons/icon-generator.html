@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>SmartSight Icon Generator</title>
+  </head>
+  <body>
+    <h2>Generate SmartSight Icons</h2>
+    <p>Open this file in a browser to generate extension icons</p>
+
+    <canvas id="canvas16" width="16" height="16"></canvas>
+    <canvas id="canvas48" width="48" height="48"></canvas>
+    <canvas id="canvas128" width="128" height="128"></canvas>
+
+    <div id="downloads"></div>
+
+    <script>
+      // Generate icons with SmartSight logo
+      function generateIcon(size) {
+        const canvas = document.getElementById(`canvas${size}`);
+        const ctx = canvas.getContext("2d");
+
+        // Gradient background
+        const gradient = ctx.createLinearGradient(0, 0, size, size);
+        gradient.addColorStop(0, "#667eea");
+        gradient.addColorStop(1, "#764ba2");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, size, size);
+
+        // Draw layered squares (SmartSight logo)
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = size / 16;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+
+        const padding = size * 0.2;
+        const layerHeight = (size - padding * 2) / 3;
+
+        // Top layer
+        ctx.beginPath();
+        ctx.moveTo(padding, padding + layerHeight * 0.5);
+        ctx.lineTo(size / 2, padding);
+        ctx.lineTo(size - padding, padding + layerHeight * 0.5);
+        ctx.stroke();
+
+        // Middle layer
+        ctx.beginPath();
+        ctx.moveTo(padding, padding + layerHeight * 1.5);
+        ctx.lineTo(size / 2, padding + layerHeight);
+        ctx.lineTo(size - padding, padding + layerHeight * 1.5);
+        ctx.stroke();
+
+        // Bottom layer
+        ctx.beginPath();
+        ctx.moveTo(padding, size - padding);
+        ctx.lineTo(size / 2, size - padding - layerHeight * 0.5);
+        ctx.lineTo(size - padding, size - padding);
+        ctx.stroke();
+
+        // Create download link
+        canvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `icon${size}.png`;
+          a.textContent = `Download icon${size}.png`;
+          a.style.display = "block";
+          a.style.margin = "10px";
+          document.getElementById("downloads").appendChild(a);
+        });
+      }
+
+      // Generate all sizes
+      generateIcon(16);
+      generateIcon(48);
+      generateIcon(128);
+
+      document.body.innerHTML +=
+        '<p style="margin-top: 20px; color: green;">✓ Icons generated! Click links above to download.</p>';
+    </script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      canvas {
+        margin: 10px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      #downloads a {
+        background: #667eea;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 5px;
+      }
+      #downloads a:hover {
+        background: #764ba2;
+      }
+    </style>
+  </body>
+</html>

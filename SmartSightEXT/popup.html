@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI News Helper - Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      width: 450px;
+      min-height: 500px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      color: #333;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      color: #667eea;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    #domainInput {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    #domainInput:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    #addBtn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 12px;
+    }
+
+    /* Force-activate button styling - match other primary buttons */
+    #forceActivateBtn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 12px;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    #forceActivateBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    #addBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    #currentSiteBtn {
+      background: #4ade80;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 12px;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+
+    #currentSiteBtn:hover {
+      background: #22c55e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+    }
+
+    .info-box {
+      background: rgba(102, 126, 234, 0.1);
+      border-left: 4px solid #667eea;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    #domainList {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    #domainList::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #domainList::-webkit-scrollbar-track {
+      background: #f0f0f0;
+      border-radius: 3px;
+    }
+
+    #domainList::-webkit-scrollbar-thumb {
+      background: #667eea;
+      border-radius: 3px;
+    }
+
+    #domainList::-webkit-scrollbar-thumb:hover {
+      background: #764ba2;
+    }
+
+    .domain-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    .domain-item span {
+      font-family: 'Courier New', monospace;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .domain-item button {
+      background: #ef4444;
+      color: white;
+      padding: 6px 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .domain-item button:hover {
+      background: #dc2626;
+      transform: translateY(-1px);
+    }
+
+    .empty-state {
+      color: #999;
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 AI News Helper</h1>
+    <p class="subtitle">Manage article analysis on your favorite news sites</p>
+
+    <div class="section">
+      <div class="info-box">
+        ℹ️ Add domains where you want the extension to analyze articles. The sidebar will only appear on these whitelisted websites.
+      </div>
+ 
+      <div class="section-title">Add Domain</div>
+      
+      <button id="currentSiteBtn">+ Add Current Website</button>
+      <button id="forceActivateBtn">⚡ Activate for This Article (one‑time)</button>
+      <div style="margin-top:8px; font-size:12px; color:#555;">Use this to force the sidebar to load for the current article once. The page may reload to apply the change.</div>
+      
+      <div class="input-group" style="margin-top:12px;">
+        <input id="domainInput" type="text" placeholder="e.g., cnn.com, bbc.co.uk" />
+        <button id="addBtn">Add</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Whitelisted Domains</div>
+      <div id="domainList"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
