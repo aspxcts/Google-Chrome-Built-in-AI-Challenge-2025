@@ -19,7 +19,7 @@ A modern Chrome Extension for hackathons that analyzes news articles using on-de
 
 ## 🏆 Hackathon Guidelines
 
-- **Open Source:** [GitHub Repository](https://github.com/yourusername/smartsight-news-analyzer)  
+- **Open Source:** [GitHub Repository](https://github.com/aspxcts/Google-Chrome-Built-in-AI-Challenge-2025)  
   _Open source under the MIT license._
 - **APIs Used:**
   - Chrome Prompt API 
