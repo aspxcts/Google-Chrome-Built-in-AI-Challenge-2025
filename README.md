@@ -32,12 +32,12 @@ A modern Chrome Extension for hackathons that analyzes news articles using on-de
 
 Open Chrome and enter each URL below in the address bar. Set the flag as described.
 
-- **Enable Gemini Nano:**  
+- **Enable Prompt API:**  
   `chrome://flags/#prompt-api-for-gemini-nano`  
   _Set to: Enabled_
 
-- **Enable Multimodal Input:**  
-  `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input`  
+- **Enable Summarizer API**  
+  `chrome://flags/#summarization-api-for-gemini-nano`  
   _Set to: Enabled_
 
 - **Enable On-Device Model:**  
@@ -63,8 +63,11 @@ Open Chrome and enter each URL below in the address bar. Set the flag as describ
 
 ### 3. Download Gemini Nano Model
 
-Chrome will automatically download the Gemini Nano model after enabling the flags and using the extension.  
-If prompted, allow Chrome to complete the download.
+#### Click the wrench icon in the top right of the popup:
+<img width="448" height="601" alt="image" src="https://github.com/user-attachments/assets/16978c75-51f2-4f38-83ba-0281e332bef2" />
+
+#### Then click **Start Download** (This may take a while depending on your connection!)
+<img width="454" height="600" alt="image" src="https://github.com/user-attachments/assets/3e95f59c-6532-4422-bd81-c9788bb150cd" />
 
 ---
 
@@ -80,15 +83,3 @@ If prompted, allow Chrome to complete the download.
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🌐 Repository
-
-[https://github.com/yourusername/smartsight-news-analyzer](https://github.com/yourusername/smartsight-news-analyzer)
-
----
-
-## 🙌 Credits
-
-Built for the Chrome AI Hackathon.
